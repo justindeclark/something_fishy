@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
+import { DatabaseModule } from './database/database.module';
+import { CoralsModule } from './corals/corals.module';
 
 @Module({
-  imports: [],
+  imports: [ConfigModule.forRoot(), DatabaseModule, CoralsModule],
   controllers: [AppController],
   providers: [AppService],
 })
